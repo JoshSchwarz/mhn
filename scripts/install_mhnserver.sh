@@ -26,7 +26,7 @@ echo -e "\nInitializing database, please be patient. This can take several minut
 python initdatabase.py
 cd $MHN_HOME
 
-apt-get install -y nginx
+yum install -y nginx
 mkdir -p /opt/www
 cat > /etc/nginx/sites-available/default <<EOF 
 server {
