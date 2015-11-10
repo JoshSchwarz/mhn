@@ -36,7 +36,7 @@ mkdir -p /var/log/mhn
 
 yum install supervisor
 
-cat >> /etc/supervisor.d/hpfeeds-broker.ini <<EOF 
+cat > /etc/supervisor.d/hpfeeds-broker.ini <<EOF 
 [program:hpfeeds-broker]
 command=/opt/hpfeeds/env/bin/python /opt/hpfeeds/broker/feedbroker.py
 directory=/opt/hpfeeds

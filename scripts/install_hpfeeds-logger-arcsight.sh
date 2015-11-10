@@ -54,7 +54,7 @@ mkdir -p /var/log/mhn
 
 apt-get install -y supervisor
 
-cat >> /etc/supervisor/conf.d/hpfeeds-logger-arcsight.conf <<EOF 
+cat > /etc/supervisor.d/hpfeeds-logger-arcsight.ini <<EOF 
 [program:hpfeeds-logger-arcsight]
 command=/opt/hpfeeds-logger/bin/hpfeeds-logger arcsight.json
 directory=/opt/hpfeeds-logger

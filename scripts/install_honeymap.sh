@@ -50,7 +50,7 @@ make
 
 mkdir -p /var/log/mhn
 
-cat > /etc/supervisor/conf.d/honeymap.conf <<EOF 
+cat > /etc/supervisor.d/honeymap.ini <<EOF 
 [program:honeymap]
 command=/opt/honeymap/server/server
 directory=/opt/honeymap

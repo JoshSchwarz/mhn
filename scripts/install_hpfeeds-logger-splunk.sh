@@ -50,7 +50,7 @@ python /opt/hpfeeds/broker/add_user.py "$IDENT" "$SECRET" "" "$CHANNELS"
 
 mkdir -p /var/log/mhn
 
-cat >> /etc/supervisor/conf.d/hpfeeds-logger-splunk.conf <<EOF 
+cat >> /etc/supervisor.d/hpfeeds-logger-splunk.ini <<EOF 
 [program:hpfeeds-logger-splunk]
 command=/opt/hpfeeds-logger/bin/hpfeeds-logger splunk.json
 directory=/opt/hpfeeds-logger
