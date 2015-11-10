@@ -109,6 +109,3 @@ startsecs=10
 EOF
 
 supervisorctl update
-
-
-

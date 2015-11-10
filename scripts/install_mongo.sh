@@ -3,4 +3,4 @@
 set -e
 set -x
 
-yum install -y mongodb
+yum install -y mongodb-org

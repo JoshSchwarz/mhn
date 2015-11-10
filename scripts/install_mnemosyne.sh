@@ -8,7 +8,6 @@ yum update
 pip install virtualenv
 
 SCRIPTS=`dirname $0`
-bash $SCRIPTS/install_mongo.sh
 
 cd /opt/
 git clone https://github.com/threatstream/mnemosyne.git

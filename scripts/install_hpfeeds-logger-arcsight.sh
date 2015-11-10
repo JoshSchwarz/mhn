@@ -52,8 +52,6 @@ python /opt/hpfeeds/broker/add_user.py "$IDENT" "$SECRET" "" "$CHANNELS"
 
 mkdir -p /var/log/mhn
 
-apt-get install -y supervisor
-
 cat >> /etc/supervisord.d/hpfeeds-logger-arcsight.ini <<EOF 
 [program:hpfeeds-logger-arcsight]
 command=/opt/hpfeeds-logger/bin/hpfeeds-logger arcsight.json
