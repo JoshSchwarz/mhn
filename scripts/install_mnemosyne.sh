@@ -3,8 +3,8 @@
 set -e
 set -x
 
-apt-get update
-apt-get install -y git python-pip python-dev
+yum update
+
 pip install virtualenv
 
 SCRIPTS=`dirname $0`
@@ -54,8 +54,6 @@ deactivate
 python /opt/hpfeeds/broker/add_user.py "$IDENT" "$SECRET" "" "$CHANNELS"
 
 mkdir -p /var/log/mhn/
-
-apt-get install -y supervisor
 
 cat >> /etc/supervisor/conf.d/mnemosyne.conf <<EOF 
 [program:mnemosyne]

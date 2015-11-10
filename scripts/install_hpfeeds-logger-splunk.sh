@@ -3,10 +3,6 @@
 set -e
 set -x
 
-apt-get update
-apt-get install -y git python-pip python-dev libgeoip-dev
-pip install virtualenv
-
 SCRIPTS=`dirname $0`
 
 if [ ! -d "/opt/hpfeeds-logger" ]
@@ -53,8 +49,6 @@ EOF
 python /opt/hpfeeds/broker/add_user.py "$IDENT" "$SECRET" "" "$CHANNELS"
 
 mkdir -p /var/log/mhn
-
-apt-get install -y supervisor
 
 cat >> /etc/supervisor/conf.d/hpfeeds-logger-splunk.conf <<EOF 
 [program:hpfeeds-logger-splunk]

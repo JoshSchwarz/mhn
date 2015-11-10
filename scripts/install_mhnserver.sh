@@ -3,8 +3,7 @@
 set -e
 set -x
 
-apt-get update
-apt-get install -y git build-essential python-pip python-dev redis-server libgeoip-dev
+yum install -y redis
 pip install virtualenv
 
 MHN_HOME=`dirname $0`/..
@@ -51,8 +50,6 @@ server {
 }
 EOF
 ln -fs /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
-apt-get install -y supervisor
 
 cat > /etc/supervisor/conf.d/mhn-uwsgi.conf <<EOF 
 [program:mhn-uwsgi]

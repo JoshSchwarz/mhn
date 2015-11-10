@@ -2,7 +2,7 @@
 
 set -x
 
-apt-get install -y git mercurial make coffeescript
+yum install -y mercurial make coffee-script
 
 ####################################################################
 # Install a decent version of golang
@@ -50,8 +50,6 @@ make
 
 mkdir -p /var/log/mhn
 
-apt-get install -y supervisor
-
 cat > /etc/supervisor/conf.d/honeymap.conf <<EOF 
 [program:honeymap]
 command=/opt/honeymap/server/server
@@ -63,7 +61,7 @@ autorestart=true
 startsecs=10
 EOF
 
-apt-get install -y libgeoip-dev
+yum install -y GeoIP-devel GeoIP
 /opt/hpfeeds/env/bin/pip install GeoIP
 
 cd /opt/

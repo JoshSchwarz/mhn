@@ -3,8 +3,9 @@
 set -e
 set -x
 
-apt-get update
-apt-get install -y libffi-dev build-essential python-pip python-dev git libssl-dev
+yum update
+yum install -y libffi-devel python-devel python-pip git openssl-devel
+yum groupinstall "Development Tools"
 
 SCRIPTS=`dirname $0`
 bash $SCRIPTS/install_mongo.sh
@@ -33,7 +34,7 @@ pip install .
 
 mkdir -p /var/log/mhn
 
-apt-get install -y supervisor
+yum install supervisor
 
 cat >> /etc/supervisor/conf.d/hpfeeds-broker.conf <<EOF 
 [program:hpfeeds-broker]
