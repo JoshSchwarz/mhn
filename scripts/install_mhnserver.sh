@@ -51,7 +51,7 @@ server {
 EOF
 ln -fs /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
-cat > /etc/supervisor.d/mhn-uwsgi.ini <<EOF 
+cat > /etc/supervisord.d/mhn-uwsgi.ini <<EOF 
 [program:mhn-uwsgi]
 command=$MHN_HOME/env/bin/uwsgi -s /tmp/uwsgi.sock -w mhn:mhn -H $MHN_HOME/env --chmod-socket=666
 directory=$MHN_HOME/server
@@ -62,7 +62,7 @@ autorestart=true
 startsecs=10
 EOF
 
-cat > /etc/supervisor.d/mhn-celery-worker.ini <<EOF 
+cat > /etc/supervisord.d/mhn-celery-worker.ini <<EOF 
 [program:mhn-celery-worker]
 command=$MHN_HOME/env/bin/celery worker -A mhn.tasks --loglevel=INFO
 directory=$MHN_HOME/server
@@ -77,7 +77,7 @@ EOF
 touch /var/log/mhn/mhn-celery-worker.log /var/log/mhn/mhn-celery-worker.err
 chown www-data /var/log/mhn/mhn-celery-worker.*
 
-cat > /etc/supervisor.d/mhn-celery-beat.ini <<EOF 
+cat > /etc/supervisord.d/mhn-celery-beat.ini <<EOF 
 [program:mhn-celery-beat]
 command=$MHN_HOME/env/bin/celery beat -A mhn.tasks --loglevel=INFO
 directory=$MHN_HOME/server
@@ -100,7 +100,7 @@ cat > $MHN_HOME/server/collector.json <<EOF
 }
 EOF
 
-cat > /etc/supervisor.d/mhn-collector.ini <<EOF 
+cat > /etc/supervisord.d/mhn-collector.ini <<EOF 
 [program:mhn-collector]
 command=$MHN_HOME/env/bin/python collector_v2.py collector.json
 directory=$MHN_HOME/server

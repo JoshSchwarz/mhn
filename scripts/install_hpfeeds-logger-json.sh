@@ -50,7 +50,7 @@ python /opt/hpfeeds/broker/add_user.py "$IDENT" "$SECRET" "" "$CHANNELS"
 
 mkdir -p /var/log/mhn
 
-cat > /etc/supervisor.d/hpfeeds-logger-json.ini <<EOF 
+cat >> /etc/supervisord.d/hpfeeds-logger-json.ini <<EOF 
 [program:hpfeeds-logger-json]
 command=/opt/hpfeeds-logger/bin/hpfeeds-logger json.json
 directory=/opt/hpfeeds-logger

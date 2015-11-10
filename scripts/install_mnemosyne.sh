@@ -55,7 +55,7 @@ python /opt/hpfeeds/broker/add_user.py "$IDENT" "$SECRET" "" "$CHANNELS"
 
 mkdir -p /var/log/mhn/
 
-cat > /etc/supervisor.d/mnemosyne.ini <<EOF 
+cat >> /etc/supervisord.d/mnemosyne.ini <<EOF 
 [program:mnemosyne]
 command=/opt/mnemosyne/env/bin/python runner.py --config mnemosyne.cfg
 directory=/opt/mnemosyne

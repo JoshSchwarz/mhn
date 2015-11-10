@@ -50,7 +50,7 @@ make
 
 mkdir -p /var/log/mhn
 
-cat > /etc/supervisor.d/honeymap.ini <<EOF 
+cat > /etc/supervisord.d/honeymap.ini <<EOF 
 [program:honeymap]
 command=/opt/honeymap/server/server
 directory=/opt/honeymap
@@ -97,7 +97,7 @@ cat > /opt/hpfeeds/geoloc.json <<EOF
 }
 EOF
 
-cat > /etc/supervisor.d/geoloc.ini <<EOF 
+cat > /etc/supervisord.d/geoloc.ini <<EOF 
 [program:geoloc]
 command=/opt/hpfeeds/env/bin/python /opt/hpfeeds/examples/geoloc/geoloc.py /opt/hpfeeds/geoloc.json
 directory=/opt/hpfeeds/
