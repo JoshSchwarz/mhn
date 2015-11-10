@@ -4,7 +4,7 @@ set -e
 set -x
 
 yum update
-yum install -y libffi-devel python-devel python-pip git openssl-devel
+yum install -y libffi-devel python-pip python-devel git openssl-devel
 yum groupinstall "Development Tools"
 
 SCRIPTS=`dirname $0`
@@ -36,7 +36,7 @@ mkdir -p /var/log/mhn
 
 yum install supervisor
 
-cat >> /etc/supervisor/conf.d/hpfeeds-broker.conf <<EOF 
+cat >> /etc/supervisor.d/hpfeeds-broker.ini <<EOF 
 [program:hpfeeds-broker]
 command=/opt/hpfeeds/env/bin/python /opt/hpfeeds/broker/feedbroker.py
 directory=/opt/hpfeeds

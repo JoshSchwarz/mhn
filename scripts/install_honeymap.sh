@@ -97,7 +97,7 @@ cat > /opt/hpfeeds/geoloc.json <<EOF
 }
 EOF
 
-cat > /etc/supervisor/conf.d/geoloc.conf <<EOF 
+cat > /etc/supervisor.d/geoloc.ini <<EOF 
 [program:geoloc]
 command=/opt/hpfeeds/env/bin/python /opt/hpfeeds/examples/geoloc/geoloc.py /opt/hpfeeds/geoloc.json
 directory=/opt/hpfeeds/
